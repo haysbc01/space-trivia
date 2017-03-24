@@ -1486,8 +1486,9 @@ body {
   .data-open #data, .data-close #data {
     left: 0px; }
 
-  .controls-open #controls, .controls-close #controls {
-    right: 0px; } }
+  /*.controls-open #controls, .controls-close #controls {
+    right: 0px; }*/
+  }
 @media screen and (min-width: 1300px) {
   #universe {
     font-size: 100%; } }
