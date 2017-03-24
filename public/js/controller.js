@@ -1,12 +1,12 @@
 angular.module('space')
-      . controller('spaceController', spaceCtrl);
+      .controller('spaceController', spaceCtrl);
 
 spaceCtrl.$inject = ['$http'];
 
 function spaceCtrl($http){
   var space = this;
 
-  space.greeting = 'hello'
+  space.greeting = 'Rocking Rockets'
 
   space.showBtn = function (event){
     space.planet = event;
@@ -16,7 +16,11 @@ function spaceCtrl($http){
   space.startQuiz = function (planet){
     console.log(planet)
 
-    window.location.href='/quiz/'+planet
+    space.rocket = true;
+    setTimeout (function(){
+      window.location.href='/quiz/'+planet
+    }, 3000)
+
 
 
   }

@@ -18,7 +18,8 @@
   <body class="opening hide-UI view-2D zoom-large data-close controls-close" ng-controller='spaceController as space'>
   <div id="navbar">
     <a id="toggle-data" href="#data"><i class="icon-data"></i>Select A Planet</a>
-    <h1>3D Solar System {{space.greeting}}<br></h1>
+    <h1>{{space.greeting}}<br></h1>
+    <p class="white">See if Your Knowledge can BLast Off</p>
     <button id="quizBtn" class="hollow button success float-center" ng-show='space.quiz' ng-click='space.startQuiz(space.planet)'>Start {{space.planet}} Quiz</button>
     <!-- <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a> -->
   </div>
@@ -163,6 +164,8 @@
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script> -->
 
+
+  <img class='rocket' ng-show='space.rocket' src="https://media.giphy.com/media/3o6gbbtkO23zlk5Zm0/giphy.gif" alt="">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
   <script type="text/javascript">

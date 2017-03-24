@@ -2,3 +2,27 @@
   margin-top : 25px;
   width : 180px;
 }
+
+.rocket {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.questionList{
+  margin-top: 1rem;
+  color: orange;
+  font-size: 24px;
+}
+
+.answerList{
+  color: #3ADB76;
+  font-size: 16px;
+}
+
+.white {
+  color: white;
+  text-align: center;
+}

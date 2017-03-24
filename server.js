@@ -14,9 +14,9 @@ app.get('/', (req, res)=>{
 });
 
 
-app.get('/quiz', (req, res)=>{
-  res.sendFile('quiz.html', {root: './public'})
-})
+// app.get('/quiz', (req, res)=>{
+//   res.sendFile('quiz.html', {root: './public'})
+// })
 
 
 app.get('/quiz/:planet', (req,res)=>{

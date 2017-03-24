@@ -38,10 +38,18 @@ angular.module("spaceApp")
 
         if (quiz.userAnswers[i] == false) {
         console.log("try again...");
+        alert("Keep trying. You can get all three correct!")
         return "try again..."
         }
       }
-      console.log("Great! Go to next planet")
+
+      console.log("Great! Go to next planet");
+      alert("Great! Fly to another planet.")
+
+      quiz.rocket = true;
+      setTimeout(function(){
+          window.location.href = '/'
+      }, 3000)
   }
 
 
@@ -49,7 +57,7 @@ angular.module("spaceApp")
     quiz.planet = {
       name: "Earth",
       img: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
-      Description: "Our Home!",
+      description: "Our Home!",
       quest: [
         {
           Q: "What is Earth's name1",

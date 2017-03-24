@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="spaceApp">
   <head>
     <meta charset="utf-8">
-    <title>Quiz</title>
+    <title>Solar System Quizes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js" charset="utf-8"></script>
+    <script src="/js/spaceApp.module.js" charset="utf-8"></script>
+    <script src="/js/quiz.controller.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/main.css">
   </head>
-  <body>
-  <h1>quiz time</h1>  
+
+  <body ng-controller="quizController as quiz">
+    <div class="galaxy">
+
+    <div class="row">
+
+      <div class="column small-4">
+
+        <div>
+          <img ng-src="{{quiz.planet.img}}">
+        </div>
+
+      </div>
+
+      <div class="column small-8">
+
+        <div ng-repeat="question in quiz.planet.quest" class="questionList">
+          <h3>{{question.Q}}</h3>
+          <ul>
+            <li class='answerList'
+              ng-click="quiz.checkAnswer(answer, question.CAn, question)"
+              ng-repeat="answer in question.answers">
+              <input name="{{question.Q}}"
+              class="switch small"
+              id="radio-btn"
+              type="radio"
+              >
+              {{answer}}
+            </li>
+          </ul>
+      </div>
+      <button
+        id="quizBtn"
+        type="button"
+        ng-click="quiz.checkAnswers()"
+        class="hollow button success">
+          Submit
+      </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+    <img class='rocket'
+      ng-show="quiz.rocket"
+     src="https://media.giphy.com/media/3o6gbbtkO23zlk5Zm0/giphy.gif" alt="">
+
   </body>
 </html>
