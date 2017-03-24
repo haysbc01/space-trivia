@@ -52,29 +52,39 @@ angular.module("spaceApp")
       }, 3000)
   }
 
+    quiz.planet = {};
+
+    $http.get('/planets/'+window.location.pathname.split('/')[2])
+      .then(function(response) {
+      console.log(response);
+
+      quiz.planet = response.data;
+    })
 
 
-    quiz.planet = {
-      name: "Earth",
-      img: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
-      description: "Our Home!",
-      quest: [
-        {
-          Q: "What is Earth's name1",
-          answers: ["Earth", "Venus", "Mars", "Xenon 34"],
-          CAn: "Mars"
-        },
-        {
-          Q: "What is Earth's name2",
-          answers: ["Mars", "Venus", "Earth", "Xenon 34"],
-          CAn: "Earth"
-        },
-        {
-          Q: "What is Earth's name3",
-          answers: ["Venus", "Earth", "Mars", "Xenon 34"],
-          CAn: "Xenon 34"
-        }
-      ]
-    }
+
+
+    // {
+    //   name: "Earth",
+    //   img: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+    //   description: "Our Home!",
+    //   quest: [
+    //     {
+    //       Q: "What is Earth's name1",
+    //       answers: ["Earth", "Venus", "Mars", "Xenon 34"],
+    //       CAn: "Mars"
+    //     },
+    //     {
+    //       Q: "What is Earth's name2",
+    //       answers: ["Mars", "Venus", "Earth", "Xenon 34"],
+    //       CAn: "Earth"
+    //     },
+    //     {
+    //       Q: "What is Earth's name3",
+    //       answers: ["Venus", "Earth", "Mars", "Xenon 34"],
+    //       CAn: "Xenon 34"
+    //     }
+    //   ]
+    // }
 
   }
