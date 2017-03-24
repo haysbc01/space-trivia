@@ -1,14 +1,34 @@
-var express = require("express"),
-  app = express(),
-  bodyParser = require("body-parser"),
-  mongoose = require("mongoose")
+require('colors');
+var express    = require('express'),
+    mongoose   = require('mongoose'),
+    bodyParser = require('body-parser')
+    PORT       = 3000;
 
 mongoose.connect("mongodb://localhost/solar_system");
+var app = express();
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-var app = express();
 
+app.use(express.static('public'), bodyParser.json())
+
+
+app.get('/', (req, res)=>{
+  res.sendFile('index.html', {root : './public/html'});
+});
+
+app.get('/quiz', (req, res)=>{
+  res.sendFile('quiz.html', {root: './public'})
+})
+
+app.get('/quiz/:planet', (req,res)=>{
+  res.sendFile('quiz.html', {root : './public/html'})
+})
+
+// app.get('/quiz/:planet', (req,res)=>{
+//   res.send(`Quiz for ${req.params.planet}`);
+// });
 
 var planetSchema = new mongoose.Schema({
   name: String,
@@ -18,7 +38,7 @@ var planetSchema = new mongoose.Schema({
 
 });
 
-var Planet = mongoose.model("Planet", PlanetSchema);
+var Planet = mongoose.model("Planet", planetSchema);
 
 Planet.create({
     name: "Earth",
@@ -49,8 +69,6 @@ Planet.create({
         ],
         CAn: "Third"
       },
-
-
     ]
   },
 
@@ -83,8 +101,6 @@ Planet.create({
         ],
         CAn: "One million"
       },
-
-
     ]
 
   }, {
@@ -116,8 +132,6 @@ Planet.create({
         ],
         CAn: "67 million miles"
       },
-
-
     ]
   }, {
     name: "Mercury",
@@ -148,7 +162,6 @@ Planet.create({
         ],
         CAn: "Rocky"
       },
-
 
     ]
   }, {
@@ -181,7 +194,6 @@ Planet.create({
         CAn: "iron"
       },
 
-
     ]
   }, {
     name: "Jupiter",
@@ -212,8 +224,6 @@ Planet.create({
         ],
         CAn: "giant storm"
       },
-
-
     ]
   }, {
     name: "Saturn",
@@ -244,8 +254,6 @@ Planet.create({
         ],
         CAn: "Saturn's atmosphere is made up mostly of hydrogen and helium."
       },
-
-
     ]
 
   }, {
@@ -280,26 +288,26 @@ Planet.create({
     ]
 });
                            
-function(err, planet) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("NEWLY CREATED PLANET");
-    console.log(planet);
-  }
-}
-});
+// function(err, planet) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("NEWLY CREATED PLANET");
+//     console.log(planet);
+//   }
+// }
+// });
 
-app.get("/", function(req, res) {
-  res.sendFile("  ");
-});
+// //app.get("/", function(req, res) {
+//   res.sendFile("  ");
+// });
 
 app.get("/planet", function(req, res) {
   Planet.find({}, function(err, allPlanets) {
     if (err) {
       console.log(err);
     } else {
-      res.sendFile("  ", {
+      res.sendFile("quiz.html", {
         planets: allPlanets
       });
     }
@@ -311,7 +319,7 @@ app.post("/planets", function(req, res) {
   var name = req.body.name
   var image = req.body.image
   var description = req.body.description
-  var question = req.body.question
+  var quest = req.body.quest
   if (err) {
     console.log(err);
   } else {
@@ -324,7 +332,7 @@ app.get("/planets/:id", function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.sendFile("  ")
+      res.sendFile("/  ")
     }
     });
     
