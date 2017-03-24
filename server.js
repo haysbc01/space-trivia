@@ -5,6 +5,7 @@ var express    = require('express'),
     PORT       = 3000;
 
 var app = express();
+app.use(express.static('public'))
 
 app.get('/', (req, res)=>{
   res.sendFile('index.html', {root : './public'});
