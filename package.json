@@ -1,7 +1,6 @@
 {
   "name": "space",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,8 +9,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "colors": "^1.1.2",
     "express": "^4.15.2",
     "mongoose": "^4.9.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haysbc01/space-trivia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haysbc01/space-trivia/issues"
+  },
+  "homepage": "https://github.com/haysbc01/space-trivia#readme",
+  "description": ""
 }
