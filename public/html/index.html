@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html ng-app='quiz'>
+<html ng-app='space'>
   <head>
     <meta charset="utf-8">
 
     <title Final project></title>
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
+
+
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css">
+      <link rel="stylesheet" href="/css/home.css">
       <link rel="stylesheet" href="/css/main.css">
 
   </head>
 
-  <body class="opening hide-UI view-2D zoom-large data-close controls-close" ng-controller='quiz as quizCtrl'>
+  <body class="opening hide-UI view-2D zoom-large data-close controls-close" ng-controller='spaceController as space'>
   <div id="navbar">
-    <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
+    <a id="toggle-data" href="#data"><i class="icon-data"></i>Select A Planet</a>
     <h1>3D Solar System {{space.greeting}}<br></h1>
-    <button class="hollow button success float-center" ng-show='quiz'>Start Quiz</button>
-    <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
+    <button id="quizBtn" class="hollow button success float-center" ng-show='space.quiz' ng-click='space.startQuiz(space.planet)'>Start {{space.planet}} Quiz</button>
+    <!-- <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a> -->
   </div>
-  <div id="data">
-    <a class="sun" title="sun" href="#sunspeed" ng-click='quiz != quiz'>Sun</a>
-    <a class="mercury" title="mercury" href="#mercuryspeed">Mercury</a>
-    <a class="venus" title="venus" href="#venusspeed">Venus</a>
-    <a class="earth active" title="earth" href="#earthspeed">Earth</a>
-    <a class="mars" title="mars" href="#marsspeed">Mars</a>
-    <a class="jupiter" title="jupiter" href="#jupiterspeed">Jupiter</a>
-    <a class="saturn" title="saturn" href="#saturnspeed">Saturn</a>
-    <a class="uranus" title="uranus" href="#uranusspeed">Uranus</a>
-    <a class="neptune" title="neptune" href="#neptunespeed">Neptune</a>
+  <div class="row">
+    <div class="small-12 large-4 columns" id="data">
+
+
+  <div >
+    <a class="sun" title="sun" href="#sunspeed" ng-click='space.showBtn("Sun")' >Sun</a>
+    <a class="mercury" title="mercury" href="#mercuryspeed" ng-click='space.showBtn("Mercury")'>Mercury</a>
+    <a class="venus" title="venus" href="#venusspeed" ng-click='space.showBtn("Venus")'>Venus</a>
+    <a class="earth active" title="earth" href="#earthspeed" ng-click='space.showBtn("Earth")'>Earth</a>
+    <a class="mars" title="mars" href="#marsspeed" ng-click='space.showBtn("Mars")'>Mars</a>
+    <a class="jupiter" title="jupiter" href="#jupiterspeed" ng-click='space.showBtn("Jupiter")'>Jupiter</a>
+    <a class="saturn" title="saturn" href="#saturnspeed" ng-click='space.showBtn("Saturn")'>Saturn</a>
+    <a class="uranus" title="uranus" href="#uranusspeed" ng-click='space.showBtn("Uranus")'>Uranus</a>
+    <a class="neptune" title="neptune" href="#neptunespeed" ng-click='space.showBtn("Neptune")'>Neptune</a>
   </div>
+  </div>
+
+</div>
+
+
   <div id="controls">
     <label class="set-view">
       <input type="checkbox">
@@ -147,6 +160,10 @@
       </div>
     </div>
   </div>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script> -->
+
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
   <script type="text/javascript">
   if (typeof jQuery == 'undefined') {
@@ -156,9 +173,8 @@
   <!-- <script src="/js/prefixfree.min.js"></script>
   <script src="/js/scripts.min.js"></script> -->
   <script src="/js/main.js"></script>
-  <script type="/js/module.js">
-
-  </script>
+  <script src="/js/module.js"></script>
+  <script src="/js/controller.js" charset="utf-8"></script>
 </body>
 
 </html>

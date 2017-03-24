@@ -1,1 +1,1 @@
-angular.module('spcae', []);
+angular.module('space', []);
