@@ -8,7 +8,7 @@ var app = express();
 app.use(express.static('public'))
 
 app.get('/', (req, res)=>{
-  res.sendFile('index.html', {root : './public'});
+  res.sendFile('index.html', {root : './public/html'});
 });
 
 app. server = app.listen(PORT, ()=>{

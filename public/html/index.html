@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='quiz'>
   <head>
     <meta charset="utf-8">
 
     <title Final project></title>
 
-    <link rel="stylesheet" href="main.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css">
+      <link rel="stylesheet" href="/css/main.css">
+
   </head>
-  <body class="opening hide-UI view-2D zoom-large data-close controls-close">
+
+  <body class="opening hide-UI view-2D zoom-large data-close controls-close" ng-controller='quiz as quizCtrl'>
   <div id="navbar">
     <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
-    <h1>3D Solar System<br></h1>
+    <h1>3D Solar System {{space.greeting}}<br></h1>
+    <button class="hollow button success float-center" ng-show='quiz'>Start Quiz</button>
     <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
   </div>
   <div id="data">
-    <a class="sun" title="sun" href="#sunspeed">Sun</a>
+    <a class="sun" title="sun" href="#sunspeed" ng-click='quiz != quiz'>Sun</a>
     <a class="mercury" title="mercury" href="#mercuryspeed">Mercury</a>
     <a class="venus" title="venus" href="#venusspeed">Venus</a>
     <a class="earth active" title="earth" href="#earthspeed">Earth</a>
@@ -148,9 +153,12 @@
     document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
   }
   </script>
-  <script src="js/prefixfree.min.js"></script>
-  <script src="js/scripts.min.js"></script>
-  <script src="main.js"></script>
+  <!-- <script src="/js/prefixfree.min.js"></script>
+  <script src="/js/scripts.min.js"></script> -->
+  <script src="/js/main.js"></script>
+  <script type="/js/module.js">
+
+  </script>
 </body>
 
 </html>
